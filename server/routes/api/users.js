@@ -13,25 +13,25 @@ var router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    let games = await Game.findAll();
-    res.send(games);
+    let users = await User.findAll({});
+    res.send(users);
   } catch(e) {
     console.log(e);
     res.status(300).send({success:false, message:"failed"});
   }
 });
 
-router.get('/owners', async (req, res, next) => {
+router.get('/library', async (req, res, next) => {
   try {
-    let games = await Game.findAll({
+    let users = await User.findAll({
       subQuery : false,
       include : { 
         model : UserGame, 
-        as : 'Owners', 
+        as : 'Library', 
         required : true,
-        include : { model : User, as : 'User' } },
+        include : { model : Game, as : 'Game' } },
     });
-    res.send(games);
+    res.send(users);
   } catch(e) {
     console.log(e);
     res.status(300).send({success:false, message:"failed"});

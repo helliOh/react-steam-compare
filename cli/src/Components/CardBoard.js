@@ -15,7 +15,7 @@ export default function CardBoard(props) {
             setGames(null);
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
-            const response = await axios.get('http://localhost:3000/api/games/distinct');
+            const response = await axios.get('http://localhost:3000/api/games/owners');
             setGames(response.data);
           } catch (e) {
             setError(e);
@@ -27,19 +27,7 @@ export default function CardBoard(props) {
         fetchGames();
       }, []);
 
-    return (
-        <div style={{ width: '100%', height: 'auto', background: '#121212', color: '#fff', 'boxSizing' : 'border-box', 'padding': '10px 30px', 'border' : '1px #121212 solid', 'float' : 'right'}}>
-            <div style={{height: '50px', 'boxSizing' : 'border-box', 'padding': '10px 10px', 'border' : '1px #333 solid'}}>
-                Board header
-            </div>
-            <div style={{display: 'inline-block', height : '100%', float : 'left', 'boxSizing' : 'border-box', 'padding': '10px 10px', 'border' : '1px #333 solid'}}>
-                Board DashBoard
-            </div>
-            <div style={{display: 'inline-block', float : 'right', 'boxSizing' : 'border-box', 'border' : '1px #333 solid', 'padding': '10px 10px'}}>
-                { Games && Games.map( game => <Card {...game} />) }
-            </div>
-
-            
-        </div>
+    return (      
+        Games && Games.map( game => <Card {...game} />) 
     );
 }
