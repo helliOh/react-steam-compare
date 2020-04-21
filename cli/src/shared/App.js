@@ -6,8 +6,8 @@ export default function App() {
   return (
     <div>
       <Route exact path="/" component={GameView}/>
-      <Route path="/userview" component={UserView}/>
-      <Route path="/allview" component={AllGameView}/>
+      <Route exact path="/userview" component={UserView}/>
+      <Route exact path="/allview" component={AllGameView}/>
     </div>
   );
 }
