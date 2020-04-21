@@ -14,6 +14,7 @@ export default function Card(props) {
                     <div style={{width : '280px', 'margin' : '12px 0px', fontSize : '1.25em', fontWeight: '700'}}>
                         <img 
                             src={image}
+                            alt={`Image of ${name}`}
                             style={{ width: '280px', height: '107.5px',}}
                         />
                         {developer}
