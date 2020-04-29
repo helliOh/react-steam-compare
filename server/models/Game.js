@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Game = sequelize.define('Game', {
     appid: DataTypes.INTEGER,
     name: DataTypes.STRING,
+    price: DataTypes.STRING,
     developer : DataTypes.STRING,
     publisher : DataTypes.STRING,
     positive : DataTypes.STRING,

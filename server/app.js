@@ -39,7 +39,7 @@ if(process.env.FORCE) {
     games = require('./games.json').Games;
     
     const CHUNK_SIZE = 5000;
-    let buffer = games.map((item, idx) => idx%CHUNK_SIZE == 0 ? games.slice(idx, idx + CHUNK_SIZE) : null).filter(e => e);//Slice in proper size
+    let buffer = games.map((item, idx) => idx%CHUNK_SIZE == 0 ? games.slice(idx, idx + CHUNK_SIZE) : null).filter(e => e);//Slice array with proper size
 
     for(let i=0; i<buffer.length; i++){
       let game = buffer[i];
