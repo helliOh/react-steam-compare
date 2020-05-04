@@ -33,6 +33,10 @@ exports.loadUserData = async () =>{
                 {
                     nickname : "Hellikiam",
                     steamid : "76561198362982996"
+                },
+                {
+                    nickname : "vgb000123",
+                    steamid : "76561198428251273"
                 }
             ];
             

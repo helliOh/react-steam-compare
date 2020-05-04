@@ -56,7 +56,7 @@ if(process.env.FORCE) {
       const user = users[i];
       const {steamid} = user;
       let userGames = await Steam.loadGameLibrary(steamid);
-
+      
       for(let j=0; j<userGames.length; j++){//Mapping Steam game to actual game data
         let game = userGames[j];
         const {appid} = game;
