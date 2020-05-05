@@ -8,4 +8,5 @@ export { default as UserCard } from './UserCard';
 export { default as MetaUserCard } from './MetaUserCard';
 export { default as UserCardBoard } from './UserCardBoard';
 
+export { default as AllGameCard } from './AllGameCard';
 export { default as AllCardBoard } from './AllCardBoard';

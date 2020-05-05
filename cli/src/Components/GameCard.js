@@ -6,12 +6,12 @@ export default function Card(props) {
 
     return (
         <div style={{ width: '800px', height: '300px', background: '#121212', color: '#fff', 'boxSizing' : 'border-box', 'margin': '12px 4px', 'border' : '1px #333 solid', 'borderRadius' : '10px', 'boxShadow' : '2px 4px 4px 4px rgba(0, 0, 0, 0.8)'}}>
-            <div style={{ height: '20%', padding: '4px 8px', 'boxSizing' : 'border-box', 'fontSize' : '1.25em', 'fontWeight' : '700' }}>
+            <div style={{ height: '20%', padding: '4px 8px', 'boxSizing' : 'border-box', 'fontSize' : '1.4em', 'fontWeight' : '700', letterSpacing: '.05em' }}>
                 <p style={{ position : 'relative', bottom : '0', margin : '10px 4px'}}> {name} </p>
             </div>
             <div style={{ width : '100%', height : '80%', 'boxSizing' : 'border-box', 'display' : 'inline-block', 'borderTop' : '1px #333 solid'}}>
                 <div style={{ display: 'inline-block', height: '100%', 'boxSizing' : 'border-box', 'verticalAlign' : 'middle', float: 'left', 'borderRight' : '1px #333 solid', 'paddingLeft' : '8px', 'paddingRight' : '16px'}}>
-                    <div style={{width : '280px', 'margin' : '12px 0px', fontSize : '1.25em', fontWeight: '700'}}>
+                    <div style={{width : '280px', 'margin' : '12px 0px', fontSize : '.9em', fontWeight: '700', letterSpacing: '-.05em'}}>
                         <img 
                             src={image}
                             alt={`Image of ${name}`}

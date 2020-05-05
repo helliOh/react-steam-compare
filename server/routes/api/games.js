@@ -16,8 +16,6 @@ const LIMIT = 100;
 router.get('/', async (req, res, next) => {
   let { page, search, order } = req.query;
 
-  // console.log(req.query);
-
   page = page ? page : 1;
   search = search ? search : '';
   order = order ? order : { name : 'createdAt', type : 'desc' };
