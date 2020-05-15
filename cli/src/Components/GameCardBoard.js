@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import qs from 'qs';
+
+import React, {useState, useEffect} from 'react';
+
 import GameCard from './GameCard'
 
 export default function CardBoard(props) {
     const [Games, setGames] = useState(null);
     const [Loading, setLoading] = useState(false);
     const [Error, setError] = useState(null);
+    const [Count, setCount] = useState(0);
+    const [Page, setPage] = useState(1);
 
     useEffect(() => {
         const fetchGames = async () => {
