@@ -31,6 +31,28 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+sequelize.addHook('beforeCount', function (options) {
+  if (this._scope.include && this._scope.include.length > 0) {
+    options.distinct = true
+    options.col = this._scope.col || options.col || `"${this.options.name.singular}".id`
+  }
+
+  if (options.include && options.include.length > 0) {
+    options.include = null
+  }
+});
+
+Sequelize.addHook('beforeCount', function (options) {
+  if (this._scope.include && this._scope.include.length > 0) {
+    options.distinct = true
+    options.col = this._scope.col || options.col || `"${this.options.name.singular}".id`
+  }
+
+  if (options.include && options.include.length > 0) {
+    options.include = null
+  }
+})
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

@@ -1,3 +1,5 @@
+export { MainContainer } from './Containers';
+
 export { default as SideNav } from './SideNav';
 export { default as SideNavHeader } from './SideNavHeader';
 

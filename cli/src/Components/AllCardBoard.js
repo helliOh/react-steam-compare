@@ -39,7 +39,8 @@ function reducer(state, action) {// action.type 에 따라 다른 작업 수행
       loading : false,
       error : null,
       Filter : state.Filter,
-      Games : action.payload
+      Games : action.payload.rows,
+      count : action.payload.count
     };
     case 'FETCH_FAILED':
     return {
@@ -48,20 +49,7 @@ function reducer(state, action) {// action.type 에 따라 다른 작업 수행
       error : action.error,
       Filter : state.Filter,
       Games : state.Games
-    };
-    case 'COUNT_FETCH_SUCCESS' :
-    return {
-      ...state,
-      loading : false,
-      error : null,
-      count : action.payload
-    };
-    case 'COUNT_FETCH_FAILED':
-    return {
-      ...state,
-      loading : false,
-      error : action.error,
-      count : state.Games
+      
     };
     default:
     return state;
@@ -71,14 +59,6 @@ function reducer(state, action) {// action.type 에 따라 다른 작업 수행
 export default function CardBoard(props) {
     const [state, dispatch] = useReducer(reducer, initialState);
     const {Filter, Games, count, loading, error} = state;
-
-    useEffect(() => {//Life cycle
-      axios.get(`http://localhost:3000/api/games/count${qs.stringify(Filter, { addQueryPrefix: true })}`)
-      .then(response => dispatch({type : 'COUNT_FETCH_SUCCESS', payload : response.data.count}))
-      .catch(error => dispatch({type : 'COUNT_FETCH_FAILED', error : error}))
-
-      return () =>{}
-    }, [Filter.search]);
 
     useEffect(() => {//Life cycle
       axios.get(`http://localhost:3000/api/games${qs.stringify(Filter, { addQueryPrefix: true })}`)
